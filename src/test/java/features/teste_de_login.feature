@@ -13,5 +13,5 @@ Funcionalidade: Testando Login
     Quando preencher o username com <usuario> e password com <senha> e clicar no botao de login
     Entao deverá receber a <resposta>
     Exemplos:
-      |usuario|senha|resposta|
-      | ""     |"" |""      |
+      | usuario           | senha             | resposta        |
+      | "standard_user"   | "secret_sauce"    | "acesso ok"     |

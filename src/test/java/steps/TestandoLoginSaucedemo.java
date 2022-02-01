@@ -9,11 +9,13 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestandoLoginSaucedemo {
 
     WebDriver driver;
+    WebElement produto;
 
     @Before
     public void inicio() {
@@ -28,22 +30,22 @@ public class TestandoLoginSaucedemo {
     @Dado("que o usuario esta na tela de login")
         public void que_o_usuario_esta_na_tela_de_login() {
 
-        driver.get("https://www.google.com.br");
+        driver.get("https://www.saucedemo.com/");
 
     }
 
     @Quando("preencher o username com “standard_user” e password com “secret_sauce” e clicar no botao de login")
         public void preencher_o_username_com_standard_user_e_password_com_secret_sauce_e_clicar_no_botao_de_login() {
 
-        driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        driver.findElement(By.id("password")).sendKeys("secret_sauce");
-        driver.findElement(By.id("login-button")).sendKeys(Keys.ENTER);
+        driver.findElement(By.name("user-name")).sendKeys("standard_user");
+        driver.findElement(By.name("password")).sendKeys("secret_sauce");
+        driver.findElement(By.name("login-button")).sendKeys(Keys.ENTER);
     }
-│
-        │
+
     @Entao("deverá acessar")
     public void deverá_acessar() {
-        //Assert.assertEquals();
+        produto = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span"));
+        Assert.assertTrue(produto.isDisplayed());
 
     }
 
